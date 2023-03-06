@@ -1,4 +1,4 @@
-export const searchOptions = ["Title", "Genre", "Tag"];
+export const searchOptions = ["Title", "Genre"];
 export const genres = [ // Data taken from the movielens' README 
 	"Action",
 	"Adventure",

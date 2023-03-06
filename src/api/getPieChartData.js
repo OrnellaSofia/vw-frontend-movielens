@@ -1,25 +1,36 @@
 import getTags from './helper/getTags';
+import getGenres from './helper/getGenres';
+import getAllByGenre from './helper/getAllByGenre';
 
-// {
-//     "id": "java",
-//     "label": "java",
-//     "value": 521,
-//     "color": "hsl(17, 70%, 50%)"
-//   },
-
-const getPieChartData = (movies, dataType) => {
-    if(dataType === 'Title') {
-        const tagsData = getTags(movies)
-        console.log(tagsData)
-        const parsedData =  tagsData.map(data => ({
+async function getPieChartData(movies, searchType, inputSearch, pieChartValue) {
+    if(searchType === 'Title') {
+        if(pieChartValue === "Tags") {
+            const tagsData = getTags(movies)
+            const parsedData =  tagsData.map(data => ({
+                id: data.key,
+                label: data.key,
+                value: data.count,
+            }))
+            return parsedData
+        } else {
+            const genresData = getGenres(movies)
+            const parsedData =  genresData.map(data => ({
+                id: data.key,
+                label: data.key,
+                value: data.count,
+            }))
+            return parsedData
+        }
+    } else {
+        const allMoviesByGenre = await getAllByGenre(inputSearch);
+        const tagsData = getTags(allMoviesByGenre)
+        let parsedData =  tagsData.map(data => ({
             id: data.key,
             label: data.key,
             value: data.count,
         }))
-        console.log('getPieChartData', parsedData)
+        parsedData = parsedData.sort((a, b) => b.value - a.value).slice(0, 20)
         return parsedData
-    } else {
-        // smth
     }
 }
 
