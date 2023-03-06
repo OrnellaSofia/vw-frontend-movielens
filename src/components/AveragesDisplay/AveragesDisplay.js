@@ -8,8 +8,8 @@ const AveragesDisplay = ({ averages }) => {
     return (
         <div className={styles.container}>
             <AverageTag title="Average Score" score={overallAverageScore} />
-            <AverageTag title="Top Rated Film" score={topRated} />
-            <AverageTag title="Worst Rated Film" score={bottomRated} />
+            <AverageTag title="Top Rating" score={topRated} />
+            <AverageTag title="Worst Rating" score={bottomRated} />
         </div>
     )
 }

@@ -12,6 +12,23 @@
         display: grid;
         grid-template-columns: 40% 60%;
         gap: 5px;
+
+        &-right {
+            display: flex;
+            font-family: $primaryFont;
+            flex-direction: column;
+            gap: 8px;
+            
+            .piechart-container {
+                background-color: $lighterBaseColor;
+                padding: 5px;
+                margin: 0;
+
+                .piechart {
+                    height: 400px;
+                }
+            }
+        }
     }
 }
   

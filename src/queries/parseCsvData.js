@@ -1,6 +1,6 @@
 import Papa from 'papaparse';
 
-async function parseData(file) {
+async function parseCsvData(file) {
     const data = await Papa.parse(await fetchCsv(file), {
         header: true,
         skipEmptyLines: true,
@@ -14,4 +14,4 @@ async function fetchCsv(file) {
     return csv;
 }
 
-export default parseData;
+export default parseCsvData;
