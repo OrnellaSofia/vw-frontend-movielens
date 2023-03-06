@@ -1,0 +1,17 @@
+@import './styles/variables.scss';
+
+.app-container {
+    background-color: $baseColor;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px;
+    min-height: 100vh;
+
+    .dashboard-container {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        gap: 5px;
+    }
+}
+  

@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import SearchBar from './components/SearchBar/SearchBar';
+import TopMoviesDisplay from './components/TopMoviesDisplay/TopMoviesDisplay';
+import AveragesDisplay from './components/AveragesDisplay/AveragesDisplay';
+import getTopRatedByTitle from './api/getTopRatedByTitle';
+
+import styles from './App.module.scss';
 
 function App() {
+  const [searchResults, setSearchResults] = useState({});
+  const [averageResults, setAverageResults] = useState({
+    topRated: 'N/A',
+    bottomRated: 'N/A',
+    overallAverageScore: 0,
+  })
+
+  async function handleSearch(inputSearch) {
+    const {results, topRated, bottomRated, overallAverageScore} = await getTopRatedByTitle(inputSearch)
+    setSearchResults(results)
+    setAverageResults({
+      topRated: topRated, 
+      bottomRated: bottomRated, 
+      overallAverageScore: overallAverageScore,
+    })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className={styles['app-container']}>
+          <SearchBar handleSearch={inputSearch => handleSearch(inputSearch)} />
+          <div className={styles['dashboard-container']}>
+              <TopMoviesDisplay movies={searchResults}/>
+              <div className={styles['dashboard-container-right']}>
+                <AveragesDisplay averages={averageResults}/>
+              </div>
+          </div>
+      </div>
   );
 }
 

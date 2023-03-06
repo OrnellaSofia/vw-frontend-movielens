@@ -1,0 +1,10 @@
+.container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+
+    .button {
+        height: 100%;
+    }
+}

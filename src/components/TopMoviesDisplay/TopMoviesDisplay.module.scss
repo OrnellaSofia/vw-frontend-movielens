@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+
+.container {
+    background-color: $highlightColor;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 5px;
+
+    .title {
+        font-family: $primary-font;
+    }
+    
+    .list {
+        display: flex;
+        flex-direction: column;
+    }
+}

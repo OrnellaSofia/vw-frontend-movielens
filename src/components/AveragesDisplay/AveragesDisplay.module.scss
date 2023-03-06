@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+
+.container {
+    background-color: $highlightColor;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    padding: 5px;
+
+    .item {
+        background-color: $baseColor;
+        display: flex;
+        height: 100%;
+    }
+}
