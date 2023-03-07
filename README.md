@@ -1,7 +1,8 @@
 # Movies dashboard (movielens dataset)
 
 An interactive dashboard which allowes the user to look at data from movies based on their titles and movies genres. Created with React and Python.
-GitHub PAge: https://ornellasofia.github.io/vw-frontend-movielens/
+
+GitHub Page: https://ornellasofia.github.io/vw-frontend-movielens/
 
 **Packages used**
 - [Papaparse](https://pages.github.com/): csv to json converter
