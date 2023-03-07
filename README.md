@@ -36,6 +36,6 @@ The following improvement were ideas I had during development, but where left ou
 - Stop movies with high ratings but few reviews to show up so high
 - Improve the UI (I might need a designer for that :sweat_smile:)
 
-Please reach out to me for any questins!
+Please reach out to me for any questions!
 - Ornella
 
