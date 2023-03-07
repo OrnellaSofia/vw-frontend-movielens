@@ -1,18 +1,19 @@
-import getMovies from '../queries/getMovies';
-import getAverages from './helper/getAverages';
+import getMovies from "../queries/getMovies";
+import getAverages from "./helper/getAverages";
 
+// Returns top 10 films based on genre, and averages ratings data
 async function getTopRatedByGenre(genre) {
-    const allMovies = await getMovies();
-    let topRated = 'N/A';
-    let bottomRated = 'N/A';
-    let overallAverageScore = 0;
-    let results = allMovies.data.filter(movie => {
-        return movie.genres.includes(genre);
-    })
-    if(results.length > 0) {
-        return getAverages(results)
-    }
-    return {results, topRated, bottomRated, overallAverageScore};
+	const allMovies = await getMovies();
+	let topRated = "N/A";
+	let bottomRated = "N/A";
+	let overallAverageScore = 0;
+	let results = allMovies.data.filter((movie) => {
+		return movie.genres.includes(genre);
+	});
+	if (results.length > 0) {
+		return getAverages(results);
+	}
+	return { results, topRated, bottomRated, overallAverageScore };
 }
 
-export default getTopRatedByGenre
+export default getTopRatedByGenre;

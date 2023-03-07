@@ -57,7 +57,7 @@ const PieChartDisplay = ({ data, selectedInput, handlePieChartChange }) => {
 					sortByValue={true}
 				/>
 			) : (
-				<p>No data to display</p>
+				<p>No data to display.</p>
 			)}
 		</>
 	);

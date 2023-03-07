@@ -4,7 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
-import { searchOptions, genres } from './constants';
+import { searchOptions, genres } from "./constants";
 
 import styles from "./SearchBar.module.scss";
 
@@ -27,11 +27,11 @@ const SearchBar = ({ handleSearch }) => {
 				return (
 					<TextField
 						id="input-genres"
-            select
-            value={inputField}
+						select
+						value={inputField}
 						label="Select"
-            helperText="Please select a genre"
-            onChange={(e) => setInputField(e.target.value)}
+						helperText="Please select a genre"
+						onChange={(e) => setInputField(e.target.value)}
 					>
 						{genres.map((genre) => (
 							<MenuItem key={genre} value={genre}>

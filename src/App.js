@@ -18,19 +18,19 @@ function App() {
 		overallAverageScore: 0,
 	});
 	const [pieChartData, setPieChartData] = useState([]);
-  const [input, setInput] = useState();
-  const [selection, setSelection] = useState();
-  const [pieChartValue] = useContext(PieChartValueContext);
+	const [input, setInput] = useState();
+	const [selection, setSelection] = useState();
+	const [pieChartValue] = useContext(PieChartValueContext);
 
-  async function handlePieChartData(newPieChartValue) {
-    const pieData = await getPieChartData(
+	async function handlePieChartData(newPieChartValue) {
+		const pieData = await getPieChartData(
 			searchResults,
 			selection,
 			input,
-      newPieChartValue
+			newPieChartValue
 		);
-    setPieChartData(pieData)
-  }
+		setPieChartData(pieData);
+	}
 
 	async function handleSearch(inputSearch, selectedOption) {
 		let data;
@@ -46,12 +46,12 @@ function App() {
 			data.results,
 			selectedOption,
 			inputSearch,
-      pieChartValue
+			pieChartValue
 		);
-    setInput(inputSearch)
-    setSelection(selectedOption)
+		setInput(inputSearch);
+		setSelection(selectedOption);
 		setSearchResults(data.results);
-		setAverageResults({...data});
+		setAverageResults({ ...data });
 		setPieChartData(pieData);
 	}
 
@@ -68,7 +68,11 @@ function App() {
 					<AveragesDisplay averages={averageResults} />
 					<div className={styles["piechart-container"]}>
 						<div className={styles["piechart"]}>
-							<PieChartDisplay data={pieChartData} selectedInput={selection} handlePieChartChange={handlePieChartData} />
+							<PieChartDisplay
+								data={pieChartData}
+								selectedInput={selection}
+								handlePieChartChange={handlePieChartData}
+							/>
 						</div>
 					</div>
 				</div>
